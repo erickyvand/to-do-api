@@ -11,7 +11,8 @@
     "dev-server": "nodemon --exec babel-node src/server.js",
     "build": "babel src --out-dir production",
     "start": "node production/server.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "coverage": "nyc report --reporter=text-lcov | coveralls",
+    "test": "export NODE_ENV=test && nyc mocha --require @babel/register src/tests/**/*.test.js --timeout 10000 --exit"
   },
   "repository": {
     "type": "git",
@@ -29,6 +30,12 @@
     "@babel/node": "^7.12.17",
     "@babel/preset-env": "^7.12.17",
     "@babel/register": "^7.12.13",
+    "chai": "^4.3.0",
+    "chai-http": "^4.3.0",
+    "coveralls": "^3.1.0",
+    "faker": "^5.4.0",
+    "mocha": "^8.3.0",
+    "nyc": "^15.1.0",
     "sequelize-cli": "^6.2.0"
   },
   "dependencies": {
