@@ -12,6 +12,10 @@ const swaggerDefinition = {
 			url: 'http://localhost:4000',
 			description: 'Development server',
 		},
+		{
+			url: 'https://to-do-api-stage.herokuapp.com/',
+			description: 'Production server',
+		},
 	],
 	apis: ['./src/routes/*.js'],
 };
