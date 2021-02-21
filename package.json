@@ -1,0 +1,39 @@
+{
+  "name": "to-do-api",
+  "version": "1.0.0",
+  "description": "To-Do API",
+  "main": "index.js",
+  "scripts": {
+    "dev-server": "nodemon --exec babel-node src/server.js",
+    "build": "babel src --out-dir production",
+    "start": "node production/server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/erickyvand/to-do-api.git"
+  },
+  "author": "Iragena Eric",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/erickyvand/to-do-api/issues"
+  },
+  "homepage": "https://github.com/erickyvand/to-do-api#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.12.17",
+    "@babel/core": "^7.12.17",
+    "@babel/node": "^7.12.17",
+    "@babel/preset-env": "^7.12.17",
+    "@babel/register": "^7.12.13",
+    "sequelize-cli": "^6.2.0"
+  },
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "http-status": "^1.5.0",
+    "pg": "^8.5.1",
+    "pg-hstore": "^2.3.3",
+    "regenerator-runtime": "^0.13.7",
+    "sequelize": "^6.5.0"
+  }
+}
