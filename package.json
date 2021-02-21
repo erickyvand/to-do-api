@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "description": "To-Do API",
   "main": "index.js",
+  "exports": {
+    "require": "./index.js",
+    "import": "./esm/wrapper.js"
+  },
   "scripts": {
     "dev-server": "nodemon --exec babel-node src/server.js",
     "build": "babel src --out-dir production",
@@ -34,6 +38,8 @@
     "pg": "^8.5.1",
     "pg-hstore": "^2.3.3",
     "regenerator-runtime": "^0.13.7",
-    "sequelize": "^6.5.0"
+    "sequelize": "^6.5.0",
+    "swagger-jsdoc": "5.0.1",
+    "swagger-ui-express": "^4.1.6"
   }
 }
