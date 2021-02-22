@@ -17,3 +17,13 @@
 - Create `.env` file on the root of the project folder
 - Check examples of the environment variables in the `.env.example` file, copy them and paste it in `.env` file. Add a value of every environment variable.
 - Run `npm run dev-server` to start the server
+
+## How to run this API on Docker container?
+### Build Docker image
+- cd to project folder
+- Run this command `docker build -t <image-name>:version .`
+- Example: `docker build -t to-do-api:latest .`
+
+### Run container
+- Run this command `docker run --name <container-name> -d -p <any-port-of-your-choice>:4000 <image-name>:<version>`
+- Example: `docker run --name to-do -d -p 4000:4000 to-do-api:latest`
