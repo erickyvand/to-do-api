@@ -62,6 +62,43 @@
           }
         }
       }
+    },
+    "/auth/login" : {
+      "post": {
+        "tags": [
+          "User"
+        ],
+        "summary": "Login a user",
+        "description": "Endpoint to login a user",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "Signup",
+            "description": "Required fields to create a user",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Login"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Ok"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        }
+      }
     }
   },
   "definitions": {
@@ -81,6 +118,17 @@
           "type": "string"
         },
         "confirmPassword": {
+          "type": "string"
+        }
+      }
+    },
+    "Login": {
+      "type": "object",
+      "properties": {
+        "email": {
+          "type": "string"
+        },
+        "password": {
           "type": "string"
         }
       }

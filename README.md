@@ -1,5 +1,5 @@
 [![Build Status](https://www.travis-ci.com/erickyvand/to-do-api.svg?branch=main)](https://www.travis-ci.com/erickyvand/to-do-api)
-[![Coverage Status](https://coveralls.io/repos/github/erickyvand/to-do-api/badge.svg?branch=ch-test)](https://coveralls.io/github/erickyvand/to-do-api?branch=ch-test)
+[![Coverage Status](https://coveralls.io/repos/github/erickyvand/to-do-api/badge.svg?branch=main)](https://coveralls.io/github/erickyvand/to-do-api?branch=main)
 # To Do API
 ## A todo item is made of:
 - Title

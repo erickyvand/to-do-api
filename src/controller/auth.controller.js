@@ -1,6 +1,7 @@
-import { CREATED, INTERNAL_SERVER_ERROR } from 'http-status';
+import { CREATED, OK } from 'http-status';
 import BcryptService from '../services/bcrypt.service';
 import ResponseService from '../services/response.service';
+import TokenService from '../services/token.service';
 import UserService from '../services/user.service';
 
 /**
@@ -27,6 +28,20 @@ class AuthController {
 		delete userData.password;
 
 		ResponseService.setSuccess(CREATED, 'Created successfully', userData);
+		return ResponseService.send(res);
+	}
+
+	/**
+	 * * Login a user
+	 * @param  {object} req
+	 * @param  {object} res
+	 * @returns {object} object
+	 */
+	static async login(req, res) {
+		ResponseService.setSuccess(OK, 'Successfully logged in', {
+			user: req.userInfo,
+			token: TokenService.generateToken(req.userInfo),
+		});
 		return ResponseService.send(res);
 	}
 }
