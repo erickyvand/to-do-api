@@ -40,7 +40,7 @@ export const validateSignupBody = (req, res, next) => {
 			}),
 	}).options({ abortEarly: false });
 
-	handleErrors(schema, req.body, res, next);
+	return handleErrors(schema, req.body, res, next);
 };
 
 /**
@@ -63,5 +63,5 @@ export const validateLoginBody = (req, res, next) => {
 		}),
 	}).options({ abortEarly: false });
 
-	handleErrors(schema, req.body, res, next);
+	return handleErrors(schema, req.body, res, next);
 };

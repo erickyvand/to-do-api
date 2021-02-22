@@ -42,7 +42,7 @@
         "parameters": [
           {
             "in": "body",
-            "name": "Signup",
+            "name": "Body",
             "description": "Required fields to create a user",
             "required": true,
             "schema": {
@@ -79,7 +79,7 @@
         "parameters": [
           {
             "in": "body",
-            "name": "Signup",
+            "name": "Body",
             "description": "Required fields to create a user",
             "required": true,
             "schema": {
@@ -96,6 +96,53 @@
           },
           "401": {
             "description": "Unauthorized"
+          }
+        }
+      }
+    },
+    "/todo" : {
+      "post": {
+        "tags": [
+          "Todo"
+        ],
+        "summary": "Create a Todo item",
+        "description": "Endpoint to create todo item with title, description and priority",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "header",
+            "name": "Authorization",
+            "required": true,
+            "default": "Bearer {token}",
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "Body",
+            "description": "Required fields to create a todo item",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Todo"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description":"Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
         }
       }
@@ -129,6 +176,20 @@
           "type": "string"
         },
         "password": {
+          "type": "string"
+        }
+      }
+    },
+    "Todo": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "priority": {
           "type": "string"
         }
       }
