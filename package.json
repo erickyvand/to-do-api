@@ -11,8 +11,13 @@
     "dev-server": "nodemon --exec babel-node src/server.js",
     "build": "babel src --out-dir production",
     "start": "node production/server.js",
+    "migrate:up": "npx sequelize-cli db:migrate",
+    "migrate:drop": "npx sequelize-cli db:migrate:undo:all",
+    "seed:up": "npx sequelize-cli db:seed:all",
+    "seed:drop": "npx sequelize-cli seed:migrate:undo:all",
+    "pretest": "npm run migrate:drop && npm run migrate:up",
     "coverage": "nyc report --reporter=text-lcov | coveralls",
-    "test": "export NODE_ENV=test && nyc mocha --require @babel/register src/tests/**/*.test.js --timeout 10000 --exit"
+    "test": "export NODE_ENV=test && nyc --reporter=html --reporter=text mocha --require @babel/register src/tests/**/*.test.js --timeout 10000 --exit"
   },
   "repository": {
     "type": "git",
@@ -28,8 +33,10 @@
     "@babel/cli": "^7.12.17",
     "@babel/core": "^7.12.17",
     "@babel/node": "^7.12.17",
+    "@babel/plugin-transform-runtime": "^7.12.17",
     "@babel/preset-env": "^7.12.17",
     "@babel/register": "^7.12.13",
+    "babel-plugin-istanbul": "^6.0.0",
     "chai": "^4.3.0",
     "chai-http": "^4.3.0",
     "coveralls": "^3.1.0",
@@ -39,14 +46,15 @@
     "sequelize-cli": "^6.2.0"
   },
   "dependencies": {
+    "bcrypt": "^5.0.0",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "http-status": "^1.5.0",
+    "joi": "^17.4.0",
     "pg": "^8.5.1",
     "pg-hstore": "^2.3.3",
     "regenerator-runtime": "^0.13.7",
     "sequelize": "^6.5.0",
-    "swagger-jsdoc": "5.0.1",
     "swagger-ui-express": "^4.1.6"
   }
 }
