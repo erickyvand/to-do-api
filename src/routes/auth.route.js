@@ -1,7 +1,13 @@
 import { Router } from 'express';
 import AuthController from '../controller/auth.controller';
-import { checkUserExist } from '../middlewares/user.middleware';
-import { validateSignupBody } from '../validations/user.validation';
+import {
+	checkUserCredentials,
+	checkUserExist,
+} from '../middlewares/user.middleware';
+import {
+	validateLoginBody,
+	validateSignupBody,
+} from '../validations/user.validation';
 
 const router = Router();
 
@@ -10,6 +16,12 @@ router.post(
 	validateSignupBody,
 	checkUserExist,
 	AuthController.signup
+);
+router.post(
+	'/login',
+	validateLoginBody,
+	checkUserCredentials,
+	AuthController.login
 );
 
 export default router;

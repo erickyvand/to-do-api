@@ -3,7 +3,7 @@ import chaiHttp from 'chai-http';
 import { BAD_REQUEST, CONFLICT, CREATED } from 'http-status';
 import app from '../../app';
 import cleanAllTables from '../fixtures/database.fixture';
-import { user } from '../fixtures/user.fixture';
+import { createUsers, user } from '../fixtures/user.fixture';
 
 chai.should();
 chai.use(chaiHttp);
@@ -11,6 +11,7 @@ chai.use(chaiHttp);
 describe('/POST signup', () => {
 	before(async () => {
 		await cleanAllTables();
+		await createUsers();
 	});
 	it('Should create a user', done => {
 		chai
