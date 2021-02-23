@@ -4,13 +4,13 @@ import ResponseService from '../services/response.service';
 /**
  * * Handle Errors function
  * @param  {object} schema
- * @param  {object} body
+ * @param  {object} req
  * @param  {object} res
  * @param  {object} next
  * @returns {object} object
  */
-export const handleErrors = (schema, body, res, next) => {
-	const { error } = schema.validate(body);
+export const handleErrors = (schema, req, res, next) => {
+	const { error } = schema.validate(req);
 
 	if (error) {
 		const errors = error.details.map(err => err.message);

@@ -26,3 +26,15 @@ export const validateTodoBody = (req, res, next) => {
 
 	return handleErrors(schema, req.body, res, next);
 };
+
+export const validateTodoParam = (req, res, next) => {
+	const schema = Joi.object({
+		todoId: Joi.string()
+			.regex(/^[0-9]{1,}$/)
+			.messages({
+				'string.pattern.base': 'Id must be a number',
+			}),
+	}).options({ abortEarly: false });
+
+	return handleErrors(schema, req.params, res, next);
+};

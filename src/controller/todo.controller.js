@@ -1,4 +1,4 @@
-import { CREATED } from 'http-status';
+import { CREATED, OK } from 'http-status';
 import ResponseService from '../services/response.service';
 import TodoService from '../services/todo.service';
 
@@ -21,6 +21,17 @@ class TodoController {
 			priority,
 		});
 		ResponseService.setSuccess(CREATED, 'To do item created', todo);
+		return ResponseService.send(res);
+	}
+
+	/**
+	 * * View a to item
+	 * @param  {object} req
+	 * @param  {object} res
+	 * @returns {object} object
+	 */
+	static async viewTodo(req, res) {
+		ResponseService.setSuccess(OK, 'To do item', req.todoItem);
 		return ResponseService.send(res);
 	}
 }
