@@ -20,6 +20,7 @@
 - GET `/api/todo`: _View many to do items_
 - PATCH `/api/todo/:todoId`: _Update a to do item_
 - DELETE `/api/todo/:todoId`: _Delete a to do item_
+- SEARCH `/api/search`: _Search a to do item by title or description_
 
 ## Before testing this API locally, you must have
 

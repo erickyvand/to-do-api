@@ -25,6 +25,7 @@ const othersTodo = {
 };
 
 export const todoId = newTodoItem.id;
+export const title = newTodoItem.title;
 export const othersTodoId = othersTodo.id;
 
 export const createTodoItems = async () => {

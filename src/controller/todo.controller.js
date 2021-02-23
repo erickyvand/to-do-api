@@ -1,4 +1,5 @@
 import { CREATED, OK } from 'http-status';
+import { Op } from 'sequelize';
 import ResponseService from '../services/response.service';
 import TodoService from '../services/todo.service';
 import { paginationHelper } from '../utils';
@@ -94,6 +95,42 @@ class TodoController {
 		await TodoService.destroyTodo({ id: req.params.todoId });
 
 		ResponseService.setSuccess(OK, 'To do item has been deleted');
+		return ResponseService.send(res);
+	}
+
+	/**
+	 * * Search a to do item
+	 * @param  {object} req
+	 * @param  {object} res
+	 * @returns {object} object
+	 */
+	static async searchTodoItem(req, res) {
+		const { term } = req.query;
+		const { page = 1, limit = 10 } = req.query;
+		const offset = (page - 1) * limit;
+
+		const results = await TodoService.findAndCountTodos(
+			{
+				[Op.and]: {
+					userId: req.userData.id,
+					[Op.or]: {
+						title: { [Op.iLike]: `%${term}%` },
+						description: { [Op.iLike]: `%${term}%` },
+					},
+				},
+			},
+			{ offset, limit }
+		);
+
+		ResponseService.setSuccess(200, 'Search results', {
+			pageMeta: paginationHelper({
+				count: results.count,
+				rows: results.rows,
+				offset,
+				limit,
+			}),
+			rows: results,
+		});
 		return ResponseService.send(res);
 	}
 }
