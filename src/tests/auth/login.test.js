@@ -1,6 +1,6 @@
 import chai from 'chai';
 import chaiHttp from 'chai-http';
-import { BAD_REQUEST, UNAUTHORIZED, OK } from 'http-status';
+import { UNAUTHORIZED, OK } from 'http-status';
 import app from '../../app';
 import { invalidCredentials, userToLogin } from '../fixtures/user.fixture';
 
@@ -46,20 +46,6 @@ describe('/POST login', () => {
 				res.body.status.should.be.a('number');
 				res.body.should.have.property('message');
 				res.body.message.should.be.a('string');
-			});
-		done();
-	});
-
-	it('Should validate input fields', done => {
-		chai
-			.request(app)
-			.post('/api/auth/login')
-			.end((err, res) => {
-				res.body.should.be.an('object');
-				res.body.should.have.property('status');
-				res.body.status.should.equal(BAD_REQUEST);
-				res.body.should.have.property('message');
-				res.body.message.should.be.an('array');
 			});
 		done();
 	});

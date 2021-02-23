@@ -1,6 +1,9 @@
 const { Model } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
-	class User extends Model {
+	/**
+	 * * To do class model
+	 */
+	class Todo extends Model {
 		/**
 		 * Helper method for defining associations.
 		 * This method is not a part of Sequelize lifecycle.
@@ -8,24 +11,20 @@ module.exports = (sequelize, DataTypes) => {
 		 * @param {object} models
 		 */
 		static associate(models) {
-			User.hasMany(models.Todo, {
-				foreignKey: 'userId',
-				onDelete: 'CASCADE',
-				onUpdate: 'CASCADE',
-			});
+			Todo.belongsTo(models.User, { foreignKey: 'userId', targetKey: 'id' });
 		}
 	}
-	User.init(
+	Todo.init(
 		{
-			firstName: DataTypes.STRING,
-			lastName: DataTypes.STRING,
-			email: DataTypes.STRING,
-			password: DataTypes.STRING,
+			userId: DataTypes.INTEGER,
+			title: DataTypes.STRING,
+			description: DataTypes.TEXT,
+			priority: DataTypes.ENUM('LOW', 'MEDIUM', 'HIGH'),
 		},
 		{
 			sequelize,
-			modelName: 'User',
+			modelName: 'Todo',
 		}
 	);
-	return User;
+	return Todo;
 };
