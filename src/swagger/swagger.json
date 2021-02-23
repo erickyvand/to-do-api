@@ -339,6 +339,46 @@
           }
         }
       }
+    },
+    "/search" : {
+      "get": {
+        "tags": [
+          "Todo"
+        ],
+        "summary": "Search a Todo item",
+        "description": "Endpoint to delete a todo item by title or Description",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "header",
+            "name": "Authorization",
+            "description": "Bearer {token}",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "term",
+            "description": "Query term to search a to do item",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Ok"
+          },
+          "401": {
+            "description":"Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        }
+      }
     }
   },
   "definitions": {
