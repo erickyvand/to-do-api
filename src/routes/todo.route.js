@@ -5,6 +5,7 @@ import { checkTodoExists } from '../middlewares/todo.middleware';
 import {
 	validateTodoBody,
 	validateTodoParam,
+	validateUpdateTodoBody,
 } from '../validations/todo.validation';
 
 const router = Router();
@@ -23,5 +24,12 @@ router.get(
 	TodoController.viewTodo
 );
 router.get('/', authorization, TodoController.viewManyTodos);
+router.patch(
+	'/:todoId',
+	authorization,
+	validateUpdateTodoBody,
+	checkTodoExists,
+	TodoController.updateTodoItem
+);
 
 export default router;

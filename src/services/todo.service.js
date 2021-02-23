@@ -24,6 +24,13 @@ class TodoService {
 		return Todo.findOne({ where: property });
 	}
 
+	/**
+	 * * Get and count all todo items per user
+	 * @param  {object} id
+	 * @param  {inter} {offset
+	 * @param  {object} limit}
+	 * @returns {object} object
+	 */
 	static findAndCountTodos(id, { offset, limit }) {
 		return Todo.findAndCountAll({
 			where: id,
@@ -35,6 +42,16 @@ class TodoService {
 			offset,
 			limit,
 		});
+	}
+
+	/**
+	 * * Update to do item
+	 * @param  {object} id
+	 * @param  {object} property
+	 * @returns {object} object
+	 */
+	static updateTodo(id, property) {
+		return Todo.update(property, { where: id });
 	}
 }
 
