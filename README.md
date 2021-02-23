@@ -17,6 +17,7 @@
 - POST `/api/auth/login`: _Login a user_
 - POST `/api/todo`: _Create a to do item_
 - GET `/api/todo/:todoId`: _View a to do item_
+- GET `/api/todo`: _View many to do items_
 
 ## How to test this API locally?
 

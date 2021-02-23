@@ -22,5 +22,6 @@ router.get(
 	checkTodoExists,
 	TodoController.viewTodo
 );
+router.get('/', authorization, TodoController.viewManyTodos);
 
 export default router;

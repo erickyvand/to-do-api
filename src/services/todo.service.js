@@ -1,6 +1,6 @@
 import models from '../database/models';
 
-const { Todo } = models;
+const { Todo, User } = models;
 
 /**
  * To do service class
@@ -22,6 +22,19 @@ class TodoService {
 	 */
 	static findTodoItemByProperty(property) {
 		return Todo.findOne({ where: property });
+	}
+
+	static findAndCountTodos(id, { offset, limit }) {
+		return Todo.findAndCountAll({
+			where: id,
+			order: [['id', 'DESC']],
+			include: {
+				model: User,
+				attributes: ['id', 'firstName', 'lastName'],
+			},
+			offset,
+			limit,
+		});
 	}
 }
 
