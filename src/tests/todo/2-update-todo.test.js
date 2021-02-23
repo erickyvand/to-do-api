@@ -8,7 +8,7 @@ import { loggedInToken } from '../fixtures/user.fixture';
 chai.should();
 chai.use(chaiHttp);
 
-describe('/PATCH updated to do item', () => {
+describe('/PATCH update to do item', () => {
 	it('Should update a todo item', done => {
 		chai
 			.request(app)
