@@ -31,5 +31,11 @@ router.patch(
 	checkTodoExists,
 	TodoController.updateTodoItem
 );
+router.delete(
+	'/:todoId',
+	authorization,
+	checkTodoExists,
+	TodoController.deleteTodoItem
+);
 
 export default router;

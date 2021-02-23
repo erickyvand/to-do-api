@@ -19,6 +19,7 @@
 - GET `/api/todo/:todoId`: _View a to do item_
 - GET `/api/todo`: _View many to do items_
 - PATCH `/api/todo/:todoId`: _Update a to do item_
+- DELETE `/api/todo/:todoId`: _Delete a to do item_
 
 ## Before testing this API locally, you must have
 
@@ -36,7 +37,7 @@
 - Run `npm install` to install all dependencies
 - Create `.env` file on the root of the project folder
 - Check examples of the environment variables in the `.env.example` file, copy them and paste it in `.env` file. Add a value of every environment variable.
-- Run `npm run dev-server` to start the server
+- Run `npm run dev:server` to start the server
 - The server will start on `http://localhost:4000`
 - Use Postman or any other application that can test API.
 - Or open a browser to test it using swagger by entering `http://localhost:4000/api-docs`

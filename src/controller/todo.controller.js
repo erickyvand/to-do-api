@@ -83,6 +83,19 @@ class TodoController {
 		ResponseService.setSuccess(OK, 'To do item updated', todo);
 		return ResponseService.send(res);
 	}
+
+	/**
+	 * * Delete a to do item
+	 * @param  {object} req
+	 * @param  {object} res
+	 * @returns {object} object
+	 */
+	static async deleteTodoItem(req, res) {
+		await TodoService.destroyTodo({ id: req.params.todoId });
+
+		ResponseService.setSuccess(OK, 'To do item has been deleted');
+		return ResponseService.send(res);
+	}
 }
 
 export default TodoController;

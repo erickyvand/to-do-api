@@ -118,7 +118,7 @@
             "in": "header",
             "name": "Authorization",
             "required": true,
-            "default": "Bearer {token}",
+            "description": "Bearer {token}",
             "type": "string"
           },
           {
@@ -165,7 +165,7 @@
             "in": "header",
             "name": "Authorization",
             "required": true,
-            "default": "Bearer {token}",
+            "description": "Bearer {token}",
             "type": "string"
           },
           {
@@ -213,7 +213,7 @@
             "in": "header",
             "name": "Authorization",
             "required": true,
-            "default": "Bearer {token}",
+            "description": "Bearer {token}",
             "type": "string"
           },
           {
@@ -263,7 +263,7 @@
             "in": "header",
             "name": "Authorization",
             "required": true,
-            "default": "Bearer {token}",
+            "description": "Bearer {token}",
             "type": "string"
           },
           {
@@ -278,6 +278,50 @@
             "name": "Body",
             "description": "Update title, description or priority",
             "type": "object"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Ok"
+          },
+          "401": {
+            "description":"Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not found"
+          }
+        }
+      }
+    },
+    "/todo/{todoID}" : {
+      "delete": {
+        "tags": [
+          "Todo"
+        ],
+        "summary": "Delete a Todo item",
+        "description": "Endpoint to delete a todo item",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "header",
+            "name": "Authorization",
+            "description": "Bearer {token}",
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "todoID",
+            "description": "Parameter is required",
+            "required": true,
+            "type": "number"
           }
         ],
         "responses": {

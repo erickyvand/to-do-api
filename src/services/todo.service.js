@@ -53,6 +53,15 @@ class TodoService {
 	static updateTodo(id, property) {
 		return Todo.update(property, { where: id });
 	}
+
+	/**
+	 * * Delete to do item
+	 * @param  {object} id
+	 * @returns {object} object
+	 */
+	static destroyTodo(id) {
+		return Todo.destroy({ where: id });
+	}
 }
 
 export default TodoService;
