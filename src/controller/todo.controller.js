@@ -62,6 +62,27 @@ class TodoController {
 		});
 		return ResponseService.send(res);
 	}
+
+	/**
+	 * * Update a to do item
+	 * @param  {object} req
+	 * @param  {object} res
+	 * @returns {object} object
+	 */
+	static async updateTodoItem(req, res) {
+		const { title, description, priority } = req.body;
+		const { todoId } = req.params;
+
+		await TodoService.updateTodo(
+			{ id: todoId },
+			{ title, description, priority }
+		);
+
+		const todo = await TodoService.findTodoItemByProperty({ id: todoId });
+
+		ResponseService.setSuccess(OK, 'To do item updated', todo);
+		return ResponseService.send(res);
+	}
 }
 
 export default TodoController;

@@ -244,6 +244,57 @@
           }
         }
       }
+    },
+    "/todo/{todoId}/" : {
+      "patch": {
+        "tags": [
+          "Todo"
+        ],
+        "summary": "Update a Todo item",
+        "description": "Endpoint to update todo item which include title, description, priority, createdAt, and updatedAt",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "header",
+            "name": "Authorization",
+            "required": true,
+            "default": "Bearer {token}",
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "todoId",
+            "description": "Parameter is required",
+            "required": true,
+            "type": "number"
+          },
+          {
+            "in": "body",
+            "name": "Body",
+            "description": "Update title, description or priority",
+            "type": "object"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Ok"
+          },
+          "401": {
+            "description":"Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not found"
+          }
+        }
+      }
     }
   },
   "definitions": {

@@ -18,6 +18,14 @@
 - POST `/api/todo`: _Create a to do item_
 - GET `/api/todo/:todoId`: _View a to do item_
 - GET `/api/todo`: _View many to do items_
+- PATCH `/api/todo/:todoId`: _Update a to do item_
+
+## Before testing this API locally, you must have
+
+- [NodeJS](https://nodejs.org/en/)
+- [PostgreSQL](https://www.postgresql.org/download/)
+- [Postman](https://www.postman.com/downloads/) or any other application that test APIs
+- [Docker](https://docs.docker.com/get-docker/) optional
 
 ## How to test this API locally?
 
@@ -54,3 +62,7 @@
 ## This API has tests cases
 
 - Run `npm test` to see all tests cases
+
+## Contributor
+
+- **Iragena Eric** (_erickyvand_)
