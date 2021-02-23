@@ -12,7 +12,7 @@ export const user = {
 	confirmPassword: password,
 };
 
-const newUser = {
+export const newUser = {
 	id: faker.random.number({ min: 90, max: 100 }),
 	firstName: faker.name.findName(),
 	lastName: faker.name.lastName(),

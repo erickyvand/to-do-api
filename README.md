@@ -1,7 +1,10 @@
 [![Build Status](https://www.travis-ci.com/erickyvand/to-do-api.svg?branch=main)](https://www.travis-ci.com/erickyvand/to-do-api)
 [![Coverage Status](https://coveralls.io/repos/github/erickyvand/to-do-api/badge.svg?branch=main)](https://coveralls.io/github/erickyvand/to-do-api?branch=main)
+
 # To Do API
+
 ## A todo item is made of:
+
 - Title
 - Description
 - Priority(LOW, MEDIUM, HIGH)
@@ -9,11 +12,14 @@
 - ModifiedDate(date of modification of the todo item)
 
 ## API endpoints
+
 - POST `/api/auth/signup`: _Create a user_
 - POST `/api/auth/login`: _Login a user_
 - POST `/api/todo`: _Create a to do item_
+- GET `/api/todo/:todoId`: _View a to do item_
 
 ## How to test this API locally?
+
 - Open terminal in your computer
 - cd to the directory of your choice
 - Clone the repository by using this command `git clone https://github.com/erickyvand/to-do-api.git`
@@ -27,18 +33,23 @@
 - Or open a browser to test it using swagger by entering `http://localhost:4000/api-docs`
 
 ## The App has been deployed on Heroku
+
 - [To do API](https://to-do-api-stage.herokuapp.com/)
 - [Swagger documentation](https://to-do-api-stage.herokuapp.com/api-docs)
 
 ## How to run this API on Docker container?
+
 ### Build Docker image
+
 - cd to project folder
 - Run this command `docker build -t <image-name>:version .`
 - Example: `docker build -t to-do-api:latest .`
 
 ### Run container
+
 - Run this command `docker run --name <container-name> -d -p <any-port-of-your-choice>:4000 <image-name>:<version>`
 - Example: `docker run --name to-do -d -p 4000:4000 to-do-api:latest`
 
 ## This API has tests cases
+
 - Run `npm test` to see all tests cases
