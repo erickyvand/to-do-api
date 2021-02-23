@@ -153,7 +153,7 @@
           "Todo"
         ],
         "summary": "View a Todo item",
-        "description": "Endpoint to View todo item with title, description, priority, createdAt, and updatedAt",
+        "description": "Endpoint to View todo item which include title, description, priority, createdAt, and updatedAt",
         "consumes": [
           "application/json"
         ],
@@ -182,6 +182,56 @@
           },
           "400": {
             "description": "Bad Request"
+          },
+          "401": {
+            "description":"Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not found"
+          }
+        }
+      }
+    },
+    "/todo/" : {
+      "get": {
+        "tags": [
+          "Todo"
+        ],
+        "summary": "View many Todo items",
+        "description": "Endpoint to View many todo items which include title, description, priority, createdAt, and updatedAt",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "header",
+            "name": "Authorization",
+            "required": true,
+            "default": "Bearer {token}",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "offset",
+            "description": "The number of items to skip before starting to collect the result set.",
+            "type": "integer"
+          },
+          {
+            "in": "query",
+            "name": "limit",
+            "description": "The numbers of items to return.",
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Ok"
           },
           "401": {
             "description":"Unauthorized"
