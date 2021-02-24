@@ -41,7 +41,8 @@
 - Run `npm run dev:server` to start the server
 - The server will start on `http://localhost:4000`
 - Use Postman or any other application that can test API.
-- Or open a browser to test it using swagger by entering `http://localhost:4000/api-docs`
+- Or open a browser to test it using swagger by entering `http://localhost:4000/api-docs`. (Note: By default swagger has production host, in order to test swagger locally, go to the project directory and navigate to `swagger` folder in `swagger.json` file on `line 12` change `to-do-api-stage.herokuapp.com` to `localhost:4000` )
+- When testing swagger in production select `https` schema, when locally select `http` schema. It means if you are locally and `https` schema is selected you will get an error that `failed to fetch`
 
 ## The App has been deployed on Heroku
 
@@ -60,6 +61,13 @@
 
 - Run this command `docker run --name <container-name> -d -p <any-port-of-your-choice>:4000 <image-name>:<version>`
 - Example: `docker run --name to-do -d -p 4000:4000 to-do-api:latest`
+
+### Using docker compose
+
+- Make sure you have `docker-compose` installed
+- `cd` to the project directory
+- Run `docker-compose up build`
+- Run `docker-compose up`
 
 ## This API has tests cases
 

@@ -117,7 +117,6 @@
           {
             "in": "header",
             "name": "Authorization",
-            "required": true,
             "description": "Bearer {token}",
             "type": "string"
           },
@@ -164,7 +163,6 @@
           {
             "in": "header",
             "name": "Authorization",
-            "required": true,
             "description": "Bearer {token}",
             "type": "string"
           },
@@ -212,7 +210,6 @@
           {
             "in": "header",
             "name": "Authorization",
-            "required": true,
             "description": "Bearer {token}",
             "type": "string"
           },
@@ -262,7 +259,6 @@
           {
             "in": "header",
             "name": "Authorization",
-            "required": true,
             "description": "Bearer {token}",
             "type": "string"
           },
